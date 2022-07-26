@@ -34,7 +34,7 @@ public:
 
 
 
-problem -88       --------two pointer approach
+2]  problem -88       --------two pointer approach
                  ---------T.C=o(n)  
                  ---------S.C=0(1)
                  ---------used to merge two sorted arrays in which start filling the largest  elements from the last
@@ -74,3 +74,41 @@ public:
 
 
 
+
+3] problem -350 ]to find intersection of two array
+              ---can do by sorting method or by mapping method (but  i do with sorting method)
+             
+                  
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        vector <int> x;                                                  // new vector to store the result
+        int p1=0;                                                        //pointer 1 for nums1
+        int p2=0;                                                        //pointer2 for nums2
+            
+        sort(nums1.begin(),nums1.end());                                         // sort both vectors nums1 and nums2  
+        sort(nums2.begin(),nums2.end());
+            
+        while(p2<=nums2.size()-1 && p1<=nums1.size()-1)
+        {     
+             if(nums1[p1]==nums2[p2])                                    //main pushing takes place in this part
+             {
+                        x.push_back(nums2[p2]);
+                        p1++;
+                        p2++;
+             }
+            
+            else if(nums1[p1]<nums2[p2]) 
+            {
+                         p1++; 
+            }
+                   
+             else if(nums1[p1]>nums2[p2])
+             {
+                     p2++;
+             }                     
+         
+    }
+        return x;
+    } 
+};

@@ -155,4 +155,30 @@ public:
 
 
 ----------------------------------------------------------------optimized soluton-----------------------------------------------------------------------------
-                
+            TIME COMPLEXITY=o(N)   SPACE COMPLEXITY=O(1)
+              ===>in brute force we try to solve this based on buying  in optimum to try to find the solution based on selling date
+                   optimal solution include======
+                                                          run a for loop{i}
+                                                          {
+                                                             finding the minimum element from starting till i
+                                                                 now,find profit by subtracting min from profit[i]
+                                                             find max. element till profit from max;
+                                                          }
+                                                           return max;
+                 
+
+        public:
+            int maxProfit(vector<int>& prices) {
+            int MIN=prices[0];
+            int MAX=0;
+            int profit;
+            for(int i=0;i<prices.size();i++)
+            {
+                  
+                             MIN=min(MIN,prices[i]);
+                                     profit=prices[i]-MIN;
+                             MAX=max(MAX,profit);                     
+            }
+            return MAX;        
+    }
+};

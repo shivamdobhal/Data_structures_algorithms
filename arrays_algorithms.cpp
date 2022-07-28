@@ -112,3 +112,47 @@ public:
         return x;
     } 
 };
+
+
+
+
+
+
+
+problem -121]   stock buy and sell problem
+               --brute force  by using n square complexity
+          ------------------------------------------------brute force -------------------------------------------------
+     
+    class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+         
+            int x=0;
+            int max=0;
+            
+            for(int i=0;i<prices.size()-1;i++)
+            {
+                    for(int j=i+1;j<prices.size();j++)
+                     {
+                             if(prices[i]<prices[j])
+                             {
+                                     x=prices[j]-prices[i];
+                             }
+                     
+                             if(x>max)
+                            {
+                            max=x;
+                             }
+                    }
+            }
+            return max;
+            if(max==0)
+            {
+                    return 0;
+            }
+    }
+};
+
+
+----------------------------------------------------------------optimized soluton-----------------------------------------------------------------------------
+                

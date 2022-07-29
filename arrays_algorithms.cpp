@@ -182,3 +182,40 @@ public:
             return MAX;        
     }
 };
+
+
+
+
+
+
+problem - 566]  matrix the reshape
+                ----concept of 2D vector
+     
+     
+class Solution {
+public:
+    vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {          // r and c are the given rows and cloumn of the new resultant matrix 
+    vector<vector<int>> result(r,vector<int>(c));                                        //new resultant matrix after reshaping
+            int row = mat.size();                                                        //for size of row of older matrix
+            int column=mat[0].size();                                                   //for size of column of older matrix
+            if(row*column!=r*c)                                                         //check that size of older matrix is  equal to newly formed matrix or not
+                    return mat;                                                         //then according to ques. return the original  matrix
+            int x=0,y=0;                                                                //rows and column of old matrix
+            for(int i=0;i<row;i++)
+            {
+                    for(int j=0;j<column;j++)
+                    {
+                            result[x][y]=mat[i][j];
+                               y++;
+                            if(y==c)                                          //if column fills then move to the next column 
+                            {
+                                    x++;                                       //increment row
+                                    y=0;                                       //set column to 0     
+                            }               
+                    }
+                    
+            }
+            return result;                                     //return the  new reshaped MATRIX
+                               
+    } 
+};
